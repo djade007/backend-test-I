@@ -42,4 +42,4 @@ $ php twitbot
 ```
 
 ## Demo
-![screen shot](https://user-images.githubusercontent.com/8668661/33088863-330b4250-ceef-11e7-9e9c-b4fd9ca299d8.gif)
+[![SCREENCAST](http://img.youtube.com/vi/mV8fWk3Rnq8/0.jpg)](http://www.youtube.com/watch?v=mV8fWk3Rnq8)
