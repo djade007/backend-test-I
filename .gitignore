@@ -1,0 +1,5 @@
+.DS_store
+.idea/
+/vendor/
+.env
+.google_credentials.json

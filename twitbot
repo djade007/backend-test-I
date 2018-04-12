@@ -1,0 +1,46 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__.'/vendor/autoload.php';
+
+
+define("APP_NAME", 'TwitBot');
+define("GOOGLE_CREDENTIALS_PATH", __DIR__ . DIRECTORY_SEPARATOR . '.google_credentials.json');
+
+
+$log = new \Garden\Cli\LogFormatter();
+
+
+try {
+    // load .env file
+    (new Dotenv\Dotenv(__DIR__))->load();
+} catch (\Exception $e) {
+    $log->error('Failed to load .env file: ' . $e->getMessage());
+    $log->message('Make sure you copy .env.example to .env and fill your api credentials');
+    return;
+}
+
+date_default_timezone_set(getenv('TIMEZONE'));
+
+if(!file_exists(GOOGLE_CREDENTIALS_PATH)) {
+    $log->error("Your google credential file is missing");
+    $log->error("copy .google_credentials.example.json to .google_credentials.json and update with your credentials");
+    return;
+}
+
+
+\Codebird\Codebird::setConsumerKey(getenv('TWITTER_API_KEY'), getenv('TWITTER_API_SECRET'));
+
+echo \Garden\Cli\Cli::blueText(
+        "Log users to Google sheet when they tweet a hashtag and have followers between 1,000 and 50,000") .
+        PHP_EOL . PHP_EOL;
+
+$query = readline("Enter hashtags separated by coma(,) or space: ");
+
+// remove duplicate coma (,) or replace space with ,
+$query = preg_replace('/\s|,{2,}/', ',', $query);
+
+// run bot with the query
+(new \App\Bot($query))->run();
+
+

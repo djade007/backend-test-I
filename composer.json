@@ -1,0 +1,23 @@
+{
+    "name": "olajide/twitbot",
+    "description": "A bot that extracts Email address, Twitter profile name, Number of followers from people's Twitter bio (on public/open accounts), into a Google spreadsheet",
+    "authors": [
+        {
+            "name": "Olajide Afeez",
+            "email": "jide4real43@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "jublonet/codebird-php": "^3.1",
+        "vlucas/phpdotenv": "^2.4",
+        "vanilla/garden-cli": "^2.0",
+        "asimlqt/php-google-spreadsheet-client": "3.0.*",
+        "google/apiclient": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
