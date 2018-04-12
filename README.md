@@ -23,9 +23,9 @@ Create .env file from the example given in .env.example
 $ cp .env.example .env
 $ vim .env
 ```
-Get your api keys from (Twitter)[https://apps.twitter.com] and insert your .env file
+Get your api keys from [Twitter](https://apps.twitter.com) and insert your .env file
 
-Visit (Google Console)[https://console.developers.google.com/flows/enableapi?apiid=sheets.googleapis.com] and download your service api file
+Visit [Google Console](https://console.developers.google.com/flows/enableapi?apiid=sheets.googleapis.com) and download your service api file
 ```
 $ vim .google_credentials.json
 ```
