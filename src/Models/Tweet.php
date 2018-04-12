@@ -14,7 +14,7 @@ class Tweet
         $this->user = new User($data->user);
     }
 
-    public function getText(): String {
+    public function getText() {
         return $this->text;
     }
 
