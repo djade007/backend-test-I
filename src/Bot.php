@@ -19,6 +19,10 @@ class Bot
     }
 
     public function run() {
+        $this->logger->begin('Filtering stream using the hashtags [' .
+            preg_replace('/,/', ', ',$this->query) .
+            ']');
+
         // set the twitter query and callback function
         new Twitter($this->query, [$this, 'gotTweetEvent']);
     }
@@ -41,6 +45,6 @@ class Bot
     protected function logTweet(Tweet $tweet) {
         $this->logger->message($tweet->getText());
         $this->logger->message("by " . $tweet->getUser()->getName());
-        echo "------------------------------\n";
+        echo "---------------------------------------------------------------------\n";
     }
 }

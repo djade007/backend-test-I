@@ -14,7 +14,7 @@ class User
         $this->name = $data->name;
         $this->username = $data->screen_name;
         $this->description = $data->description;
-        $this->followers_count = $data->followers_count;
+        $this->followers_count = $data->followers_count ?? 0;
     }
 
     public function getName(): String {
